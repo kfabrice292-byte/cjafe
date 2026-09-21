@@ -7,197 +7,313 @@
     
     <!-- Reveal.js CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/theme/white.min.css" id="theme">
     
     <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* =========================================
-           ULTRA CLEAN CORPORATE DESIGN
-           ========================================= */
+        /* CJ-AFE Custom Theme for Reveal.js */
         :root {
-            --primary: #1e3a8a; /* Deep Corporate Blue */
-            --secondary: #fbbf24; /* Vibrant Amber/Gold */
-            --bg: #f8fafc;
-            --text-dark: #334155;
-            --text-light: #64748b;
+            --r-main-font: 'Inter', sans-serif;
+            --r-heading-font: 'Outfit', sans-serif;
+            --r-main-color: #1F1F1F;
+            --r-heading-color: #2C3E6B; /* Primary */
+            --r-link-color: #F7B526; /* Secondary */
+            --primary: #2C3E6B;
+            --secondary: #F7B526;
         }
 
-        .reveal { font-family: 'Open Sans', sans-serif; color: var(--text-dark); background: var(--bg); }
-        .reveal h1, .reveal h2, .reveal h3, .reveal h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: none; margin: 0; color: var(--primary); }
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+            font-weight: 700; 
+            text-transform: none; 
+        }
         
-        .logo-top { position: absolute; top: 30px; left: 30px; width: 110px; z-index: 1000; }
+        .reveal .slide-background { background-color: #f5f7fa; }
 
-        /* Crisp Titles */
+        /* Standardization of text elements */
         .reveal h2 {
-            font-size: 1.8em;
-            margin-bottom: 30px;
-            display: inline-block;
-            border-bottom: 4px solid var(--secondary);
+            border-bottom: 3px solid var(--secondary);
             padding-bottom: 5px;
+            margin-bottom: 40px;
+            font-size: 1.5em;
+            display: inline-block;
         }
-        .reveal p { font-size: 0.85em; line-height: 1.5; color: var(--text-light); }
 
-        /* Crisp White Cards */
+        .reveal ul { 
+            width: 90%; 
+            font-size: 0.8em; 
+            line-height: 1.5; 
+            margin: 0 auto;
+            display: block;
+        }
+        .reveal li { margin-bottom: 15px; text-align: left; }
+        .reveal p { font-size: 0.8em; line-height: 1.5; margin-bottom: 20px; }
+
+        .logo-top { position: absolute; top: 20px; left: 20px; width: 90px; z-index: 1000; }
+
+        /* custom grids - very clean and structured */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            width: 90%;
+            gap: 25px;
+            width: 95%;
             margin: 0 auto;
         }
         
         .box {
-            background: #ffffff;
+            background: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.03);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--primary);
             text-align: left;
-            position: relative;
         }
-        .box-animated { opacity: 0; transform: translateY(20px); }
-        .reveal .present .box-animated { animation: popInCard 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        
-        .reveal .present .grid-2 > div:nth-child(1) { animation-delay: 0.1s; }
-        .reveal .present .grid-2 > div:nth-child(2) { animation-delay: 0.3s; }
-        .reveal .present .grid-2 > div:nth-child(3) { animation-delay: 0.5s; }
-        .reveal .present .grid-2 > div:nth-child(4) { animation-delay: 0.7s; }
-
         .box h4 { 
             color: var(--primary); 
-            margin-bottom: 10px; 
-            font-size: 1em; 
+            margin-bottom: 15px; 
+            font-size: 0.95em; 
             display: flex;
             align-items: center;
         }
-        .box h4 i { 
-            color: var(--secondary);
-            margin-right: 12px; 
-            font-size: 1.3em; 
-        }
-        .box p { font-size: 0.75em; margin: 0; color: var(--text-light); line-height: 1.4; }
-
-        @keyframes popInCard { to { opacity: 1; transform: translateY(0); } }
+        .box i { color: var(--secondary); margin-right: 12px; font-size: 1.3em; }
+        .box p { font-size: 0.75em; margin: 0; }
+        .box ul { font-size: 0.75em; margin-left: 20px; width: auto; }
 
         /* Timeline Graphics */
         .timeline { 
             display: flex; justify-content: space-between; align-items: flex-start; 
-            width: 95%; margin: 40px auto 0 auto; position: relative; 
+            width: 100%; position: relative; margin-top: 40px; 
         }
         .timeline::before { 
-            content: ''; position: absolute; top: 30px; left: 5%; width: 0%; 
-            height: 4px; background: #cbd5e1; z-index: -1; 
+            content: ''; position: absolute; top: 35px; left: 5%; width: 0%; 
+            height: 4px; background: #ddd; z-index: -1; 
         }
-        .reveal .present .timeline::before { animation: drawLine 1s ease-out forwards; animation-delay: 0.2s; }
-        
-        .timeline-item { width: 18%; text-align: center; opacity: 0; transform: translateY(15px); }
-        .reveal .present .timeline-item { animation: popInCard 0.5s forwards; }
-        .reveal .present .timeline-item:nth-child(1) { animation-delay: 0.2s; }
-        .reveal .present .timeline-item:nth-child(2) { animation-delay: 0.4s; }
-        .reveal .present .timeline-item:nth-child(3) { animation-delay: 0.6s; }
-        .reveal .present .timeline-item:nth-child(4) { animation-delay: 0.8s; }
-        .reveal .present .timeline-item:nth-child(5) { animation-delay: 1.0s; }
+        .reveal .present .timeline::before {
+            animation: drawLine 1.5s ease-in-out forwards;
+            animation-delay: 0.3s;
+        }
+        .timeline-item { 
+            width: 18%; text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .reveal .present .timeline-item {
+            animation: slideUpFade 0.6s ease forwards;
+        }
+        .reveal .present .timeline-item:nth-child(1) { animation-delay: 0.3s; }
+        .reveal .present .timeline-item:nth-child(2) { animation-delay: 0.6s; }
+        .reveal .present .timeline-item:nth-child(3) { animation-delay: 0.9s; }
+        .reveal .present .timeline-item:nth-child(4) { animation-delay: 1.2s; }
+        .reveal .present .timeline-item:nth-child(5) { animation-delay: 1.5s; }
 
         .timeline-icon {
-            background: var(--primary); color: white; width: 60px; height: 60px; 
+            background: var(--primary); color: white; width: 70px; height: 70px; 
             border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-            font-size: 26px; margin: 0 auto 10px auto; 
-            box-shadow: 0 4px 10px rgba(30,58,138,0.3);
+            font-size: 30px; /* FIXED SIZE to prevent overflow */
+            margin: 0 auto 15px auto; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 3px solid white;
         }
-        .timeline-item p { font-size: 0.65em; font-weight: 800; color: var(--primary); margin: 0; }
-        @keyframes drawLine { to { width: 90%; } }
+        .timeline-item p { font-size: 0.65em; font-weight: bold; margin: 0; line-height: 1.2; }
 
-        /* Realisation List (Slide 6) */
-        .realisation-list { list-style: none; padding: 0; margin: 0; width: 100%; }
+        /* Realisation List (Slide 6) - Fix for layout */
+        .realisation-list {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+        }
         .realisation-item {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 15px; border-radius: 8px; margin-bottom: 10px;
-            background: white; border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-            opacity: 0; transform: translateX(-20px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            margin-bottom: 0 !important;
         }
-        .reveal .present .realisation-item { animation: slideRight 0.4s forwards; }
-        .reveal .present .realisation-item:nth-child(1) { animation-delay: 0.1s; }
-        .reveal .present .realisation-item:nth-child(2) { animation-delay: 0.2s; }
-        .reveal .present .realisation-item:nth-child(3) { animation-delay: 0.3s; }
-        .reveal .present .realisation-item:nth-child(4) { animation-delay: 0.4s; }
-        .reveal .present .realisation-item:nth-child(5) { animation-delay: 0.5s; }
-
-        @keyframes slideRight { to { opacity: 1; transform: translateX(0); } }
-
-        .realisation-text { flex: 1; padding-right: 15px; font-size: 0.8em; color: var(--text-dark); }
+        .realisation-item:last-child {
+            border-bottom: none;
+        }
+        .realisation-text {
+            flex: 1;
+            padding-right: 20px;
+            font-size: 0.8em;
+            line-height: 1.3;
+        }
         .badge { 
-            background: #10b981; color: white; padding: 5px 12px; 
-            border-radius: 20px; font-size: 0.65em; font-weight: 800; white-space: nowrap;
+            background: #27ae60; 
+            color: white; 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-size: 0.7em; 
+            font-weight: bold; 
+            white-space: nowrap;
         }
-
-        /* Fixed Stat Circle */
-        .stat-circle {
-            background: var(--primary); color: white; width: 120px; height: 120px;
-            border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            margin: 0 auto; border: 4px solid var(--secondary); 
-            box-shadow: 0 10px 20px rgba(30,58,138,0.2); transform: scale(0);
-        }
-        .reveal .present .stat-circle { animation: scaleUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; animation-delay: 1s; }
-        .stat-circle span { font-size: 45px; font-weight: 900; line-height: 1; margin-bottom: 2px; }
-        .stat-circle p { font-size: 14px; margin: 0; font-weight: 800; text-transform: uppercase; }
-        @keyframes scaleUp { to { transform: scale(1); } }
-
-        /* CSS Bar Chart */
-        .css-chart {
-            display: flex; justify-content: space-around; align-items: flex-end;
-            height: 200px; border-bottom: 2px solid #cbd5e1; border-left: 2px solid #cbd5e1;
-            margin: 30px 5px 30px 5px;
-        }
-        .bar-group { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; width: 15%; position: relative; }
-        .bar {
-            width: 100%; border-radius: 4px 4px 0 0; position: relative; display: flex; justify-content: center;
-            transform-origin: bottom; background: var(--primary); transform: scaleY(0);
-        }
-        .reveal .present .bar { animation: growUp 0.6s ease-out forwards; }
-        .reveal .present .bar-group:nth-child(1) .bar { animation-delay: 0.2s; }
-        .reveal .present .bar-group:nth-child(2) .bar { animation-delay: 0.4s; background: var(--secondary); }
-        .reveal .present .bar-group:nth-child(3) .bar { animation-delay: 0.6s; background: #10b981; }
-        .reveal .present .bar-group:nth-child(4) .bar { animation-delay: 0.8s; background: #ef4444; }
-        .reveal .present .bar-group:nth-child(5) .bar { animation-delay: 1.0s; background: #8b5cf6; }
-
-        .bar span { position: absolute; top: -25px; font-weight: 900; font-size: 20px; color: var(--primary); opacity: 0; }
-        .reveal .present .bar span { animation: slideUpFade 0.4s forwards; }
-        .reveal .present .bar-group:nth-child(1) .bar span { animation-delay: 0.6s; }
-        .reveal .present .bar-group:nth-child(2) .bar span { animation-delay: 0.8s; }
-        .reveal .present .bar-group:nth-child(3) .bar span { animation-delay: 1.0s; }
-        .reveal .present .bar-group:nth-child(4) .bar span { animation-delay: 1.2s; }
-        .reveal .present .bar-group:nth-child(5) .bar span { animation-delay: 1.4s; }
-
-        .bar-group label { position: absolute; bottom: -30px; font-size: 13px; font-weight: 700; color: var(--text-light); width: 80px; text-align: center; }
-        
-        @keyframes growUp { to { transform: scaleY(1); } }
-        @keyframes slideUpFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Fullscreen button */
         #fsBtn {
-            position: fixed; bottom: 20px; right: 20px; z-index: 9999;
-            padding: 10px 20px; background: var(--primary); color: white;
-            border: none; border-radius: 30px; font-family: 'Montserrat'; font-weight: 700; font-size: 12px;
-            cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: fixed; bottom: 25px; right: 25px; z-index: 9999;
+            padding: 12px 25px; background-color: var(--primary); color: white;
+            border: none; border-radius: 50px; font-family: var(--r-main-font); font-weight: 600;
+            cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s;
+        }
+        #fsBtn:hover { background-color: var(--secondary); transform: translateY(-2px); }
+
+        /* Fixed Stat Circle */
+        .stat-circle {
+            background: var(--primary); color: white; width: 140px; height: 140px;
+            border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            margin: 0 auto; border: 5px solid var(--secondary); box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transform: scale(0);
+        }
+        .reveal .present .stat-circle {
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 1.2s;
+        }
+        .stat-circle span { font-size: 60px; font-weight: bold; line-height: 1; margin-bottom: 5px; }
+        .stat-circle p { font-size: 16px; margin: 0; line-height: 1; color: white !important; font-weight: bold;}
+
+        /* CSS Bar Chart */
+        .css-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 220px;
+            border-bottom: 2px solid #ddd;
+            border-left: 2px solid #ddd;
+            margin: 40px 10px 40px 10px; /* Space for top numbers and bottom labels */
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+            width: 15%;
+            position: relative;
+        }
+        .bar {
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            transform-origin: bottom;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transform: scaleY(0);
+        }
+        
+        .reveal .present .bar {
+            animation: growUp 0.8s ease-out forwards;
+        }
+        .reveal .present .bar-group:nth-child(1) .bar { animation-delay: 0.2s; }
+        .reveal .present .bar-group:nth-child(2) .bar { animation-delay: 0.4s; }
+        .reveal .present .bar-group:nth-child(3) .bar { animation-delay: 0.6s; }
+        .reveal .present .bar-group:nth-child(4) .bar { animation-delay: 0.8s; }
+        .reveal .present .bar-group:nth-child(5) .bar { animation-delay: 1.0s; }
+
+        .bar span {
+            position: absolute;
+            top: -30px;
+            font-weight: bold;
+            font-size: 24px;
+            color: #333;
+            opacity: 0;
+        }
+        .reveal .present .bar span {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .reveal .present .bar-group:nth-child(1) .bar span { animation-delay: 0.8s; }
+        .reveal .present .bar-group:nth-child(2) .bar span { animation-delay: 1.0s; }
+        .reveal .present .bar-group:nth-child(3) .bar span { animation-delay: 1.2s; }
+        .reveal .present .bar-group:nth-child(4) .bar span { animation-delay: 1.4s; }
+        .reveal .present .bar-group:nth-child(5) .bar span { animation-delay: 1.6s; }
+
+        .bar-group label {
+            position: absolute;
+            bottom: -35px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            color: #555;
+            width: 120px;
+        }
+        @keyframes growUp {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+        }
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Thank you Slide */
-        .thank-you-slide { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .thank-you-title { font-size: 5em; color: var(--primary); margin-bottom: 0; transform: scale(0); text-shadow: 2px 4px 0px var(--secondary); }
-        .reveal .present .thank-you-title { animation: scaleUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; animation-delay: 0.2s; }
-        .thank-you-subtitle { font-size: 1.2em; color: var(--text-light); opacity: 0; transform: translateY(20px); font-weight: 600; margin-top: 10px;}
-        .reveal .present .thank-you-subtitle { animation: slideUpFade 0.6s forwards; animation-delay: 0.8s; }
-        
-        .premium-btn {
-            background: var(--secondary); color: var(--primary) !important; padding: 15px 35px; border-radius: 30px; 
-            text-decoration: none; display: inline-block; font-weight: 900; font-size: 0.85em;
-            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4); margin-top: 40px; opacity: 0;
+        .thank-you-slide {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        .reveal .present .premium-btn { animation: slideUpFade 0.6s forwards; animation-delay: 1.2s; }
-
+        .thank-you-title {
+            font-size: 4em !important;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px !important;
+            transform: scale(0);
+        }
+        .reveal .present .thank-you-title {
+            animation: zoomBounce 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 0.2s;
+        }
+        .thank-you-subtitle {
+            font-size: 1.2em;
+            color: #555;
+            opacity: 0;
+            transform: translateY(20px);
+            font-weight: 500;
+        }
+        .reveal .present .thank-you-subtitle {
+            animation: slideUpFade 0.8s ease forwards;
+            animation-delay: 1.2s;
+        }
+        .floating-icon {
+            font-size: 3em;
+            color: var(--secondary);
+            margin: 0 25px;
+            opacity: 0;
+            display: inline-block;
+        }
+        .reveal .present .icon-1 { animation: floatInFade 0.6s ease forwards, floatAnim 2s ease-in-out infinite alternate 2.2s; animation-delay: 2s; }
+        .reveal .present .icon-2 { animation: floatInFade 0.6s ease forwards, floatAnim 2s ease-in-out infinite alternate 2.4s; animation-delay: 2.2s; }
+        .reveal .present .icon-3 { animation: floatInFade 0.6s ease forwards, floatAnim 2s ease-in-out infinite alternate 2.6s; animation-delay: 2.4s; }
+        
+        @keyframes zoomBounce {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes slideUpFade {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes floatInFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes floatAnim {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-15px); }
+        }
+        @keyframes drawLine {
+            to { width: 90%; }
+        }
     </style>
 </head>
 <body>
@@ -210,43 +326,41 @@
             
             <!-- Slide 1 : Titre -->
             <section>
-                <h1 style="font-size: 2.8em; line-height: 1.1; margin-bottom: 10px;">Rapport d'Audit &<br>Stratégie Digitale</h1>
-                <h3 style="font-size: 1.2em; color: var(--secondary); margin-bottom: 40px;">Bilan des activités de stage au CJ-AFE</h3>
-                <div class="box box-animated" style="display: inline-block; padding: 15px 30px; text-align: center; border-radius: 30px;">
-                    <p style="margin: 0; font-size: 0.85em; font-weight: 600;">Présenté par <strong style="color: var(--primary); font-size: 1.1em; margin-left: 10px;">KABORE Wendémi Fabrice</strong></p>
-                </div>
+                <h1 style="color: var(--primary); font-size: 2.2em; margin-bottom: 20px;">Rapport d'Audit & Stratégie Digitale</h1>
+                <h3 style="color: var(--secondary); font-size: 1.2em;">Bilan des activités de stage au CJ-AFE</h3>
+                <p style="margin-top: 50px; font-size: 0.8em; color: #666;">Présenté à l'attention de l'équipe dirigeante<br><br><strong>KABORE Wendémi Fabrice</strong></p>
             </section>
 
             <!-- Slide 2 : Introduction -->
             <section>
                 <h2>1. Contexte de la Mission</h2>
-                <div class="box box-animated" style="width: 80%; margin: 0 auto; text-align: center; padding: 30px;">
-                    <p style="font-size: 1em; font-weight: 600; color: var(--primary); margin-bottom: 30px;">Analyser la présence numérique du centre et restructurer son image institutionnelle.</p>
-                    <div style="display: flex; justify-content: space-around;">
-                        <div style="width: 30%;"><i class="fas fa-search" style="font-size: 2em; color: var(--secondary); margin-bottom: 10px;"></i><br><strong style="font-size: 0.85em; color: var(--primary);">Évaluer l'existant</strong></div>
-                        <div style="width: 30%; border-left: 1px solid #eee; border-right: 1px solid #eee;"><i class="fas fa-paint-brush" style="font-size: 2em; color: var(--secondary); margin-bottom: 10px;"></i><br><strong style="font-size: 0.85em; color: var(--primary);">Uniformiser</strong></div>
-                        <div style="width: 30%;"><i class="fas fa-laptop-code" style="font-size: 2em; color: var(--secondary); margin-bottom: 10px;"></i><br><strong style="font-size: 0.85em; color: var(--primary);">Développer</strong></div>
-                    </div>
+                <div class="box" style="width: 80%; margin: 0 auto;">
+                    <p style="font-size: 0.9em;"><strong>Objectif principal :</strong> Analyser la présence numérique du centre et restructurer son image institutionnelle.</p>
+                    <ul style="width: 100%; margin-top: 20px;">
+                        <li><i class="fas fa-search" style="color:var(--secondary); margin-right: 10px;"></i> Évaluer l'existant (réseaux sociaux, supports physiques).</li>
+                        <li><i class="fas fa-paint-brush" style="color:var(--secondary); margin-right: 10px;"></i> Uniformiser la charte graphique et l'identité.</li>
+                        <li><i class="fas fa-laptop-code" style="color:var(--secondary); margin-right: 10px;"></i> Développer un véritable écosystème web professionnel.</li>
+                    </ul>
                 </div>
             </section>
 
             <!-- Slide 3 : L'Audit Initial - Points Forts -->
             <section>
-                <h2>2. Audit : Forces (Existant)</h2>
+                <h2>2. Audit : L'Existant (Forces)</h2>
                 <div class="grid-2">
-                    <div class="box box-animated">
+                    <div class="box fragment fade-up">
                         <h4><i class="fab fa-facebook"></i> Présence Sociale</h4>
                         <p>Une page Facebook active avec un grand nombre de publications documentant la vie du centre.</p>
                     </div>
-                    <div class="box box-animated">
+                    <div class="box fragment fade-up">
                         <h4><i class="fas fa-users"></i> Communauté</h4>
                         <p>Existence d'une base d'abonnés constituant un noyau dur pour les futures campagnes.</p>
                     </div>
-                    <div class="box box-animated">
+                    <div class="box fragment fade-up">
                         <h4><i class="fas fa-camera"></i> Authenticité</h4>
                         <p>Utilisation de photographies réelles des formations (Ateliers, Camps) renforçant la crédibilité.</p>
                     </div>
-                    <div class="box box-animated">
+                    <div class="box fragment fade-up">
                         <h4><i class="fas fa-address-book"></i> Accessibilité</h4>
                         <p>Contacts et informations pratiques (numéros, localisation) facilement trouvables.</p>
                     </div>
@@ -257,20 +371,20 @@
             <section>
                 <h2>2. Audit : Axes d'Amélioration</h2>
                 <div class="grid-2">
-                    <div class="box box-animated" style="border-top: 4px solid #ef4444;">
-                        <h4><i class="fas fa-eye-slash" style="color: #ef4444;"></i> Visibilité Faible</h4>
+                    <div class="box fragment fade-left" style="border-top-color: #e74c3c;">
+                        <h4><i class="fas fa-eye-slash"></i> Visibilité Faible</h4>
                         <p>Le ratio Abonnés / Volume de publications est trop faible. L'audience croît trop lentement.</p>
                     </div>
-                    <div class="box box-animated" style="border-top: 4px solid #ef4444;">
-                        <h4><i class="fas fa-palette" style="color: #ef4444;"></i> Charte Graphique</h4>
+                    <div class="box fragment fade-left" style="border-top-color: #e74c3c;">
+                        <h4><i class="fas fa-palette"></i> Charte Graphique</h4>
                         <p>Manque d'uniformité dans les couleurs et polices utilisées sur les visuels, diluant la marque.</p>
                     </div>
-                    <div class="box box-animated" style="border-top: 4px solid #ef4444;">
-                        <h4><i class="fas fa-bullhorn" style="color: #ef4444;"></i> Contenu Informatif</h4>
+                    <div class="box fragment fade-left" style="border-top-color: #e74c3c;">
+                        <h4><i class="fas fa-bullhorn"></i> Contenu Informatif</h4>
                         <p>La communication relate les faits, mais valorise trop peu "l'impact" (témoignages, réussites).</p>
                     </div>
-                    <div class="box box-animated" style="border-top: 4px solid #ef4444;">
-                        <h4><i class="fas fa-globe" style="color: #ef4444;"></i> Écosystème Web</h4>
+                    <div class="box fragment fade-left" style="border-top-color: #e74c3c;">
+                        <h4><i class="fas fa-globe"></i> Écosystème Web</h4>
                         <p>Aucune plateforme web centralisée pour structurer l'offre (Pôles, Inscriptions en ligne).</p>
                     </div>
                 </div>
@@ -279,7 +393,7 @@
             <!-- Slide 5 : Le Plan d'Action Déployé (Graphique) -->
             <section>
                 <h2>3. Méthodologie (5 Phases)</h2>
-                <p style="margin-bottom: 10px; font-weight: 600;">Plan d'action express étalé sur les 3 mois du stage :</p>
+                <p style="margin-bottom: 40px;">Un plan d'action express étalé sur les 3 mois du stage :</p>
                 
                 <div class="timeline">
                     <div class="timeline-item">
@@ -288,11 +402,11 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-icon"><i class="fas fa-swatchbook"></i></div>
-                        <p>Phase 2<br>Identité</p>
+                        <p>Phase 2<br>Identité Visuelle</p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-icon"><i class="fas fa-hashtag"></i></div>
-                        <p>Phase 3<br>Réseaux</p>
+                        <p>Phase 3<br>Réseaux Sociaux</p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-icon"><i class="fas fa-code"></i></div>
@@ -308,40 +422,40 @@
             <!-- Slide 6 : Bilan Qualitatif -->
             <section>
                 <h2>4. Bilan des Réalisations</h2>
-                <div style="width: 90%; margin: 0 auto;">
+                <div class="box" style="width: 90%; margin: 0 auto; padding: 10px 30px;">
                     <ul class="realisation-list">
-                        <li class="realisation-item">
+                        <li class="realisation-item fragment fade-up">
                             <div class="realisation-text">
-                                <i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 15px; font-size: 1.2em;"></i>
-                                <strong style="color: var(--primary);">Audit Stratégique :</strong> Analyse complète terminée.
+                                <i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 10px;"></i>
+                                <strong>Audit Stratégique :</strong> Analyse complète terminée.
                             </div>
                             <span class="badge">Validé</span>
                         </li>
-                        <li class="realisation-item">
+                        <li class="realisation-item fragment fade-up">
                             <div class="realisation-text">
-                                <i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 15px; font-size: 1.2em;"></i>
-                                <strong style="color: var(--primary);">Identité Visuelle :</strong> Nouveau logo optimisé et charte graphique.
+                                <i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 10px;"></i>
+                                <strong>Identité Visuelle :</strong> Nouveau logo optimisé et charte graphique.
                             </div>
                             <span class="badge">Validé</span>
                         </li>
-                        <li class="realisation-item">
+                        <li class="realisation-item fragment fade-up">
                             <div class="realisation-text">
-                                <i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 15px; font-size: 1.2em;"></i>
-                                <strong style="color: var(--primary);">Conception Graphique :</strong> Visuels Camp Vacances & Summer English.
+                                <i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 10px;"></i>
+                                <strong>Conception Graphique :</strong> Visuels Camp Vacances & Summer English.
                             </div>
                             <span class="badge">Validé</span>
                         </li>
-                        <li class="realisation-item">
+                        <li class="realisation-item fragment fade-up">
                             <div class="realisation-text">
-                                <i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 15px; font-size: 1.2em;"></i>
-                                <strong style="color: var(--primary);">Audiovisuel :</strong> Reels immersifs et photos d'événements.
+                                <i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 10px;"></i>
+                                <strong>Audiovisuel :</strong> Reels immersifs et photos d'événements.
                             </div>
                             <span class="badge">Validé</span>
                         </li>
-                        <li class="realisation-item">
+                        <li class="realisation-item fragment fade-up">
                             <div class="realisation-text">
-                                <i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 15px; font-size: 1.2em;"></i>
-                                <strong style="color: var(--primary);">Développement Web :</strong> Lancement du site institutionnel CJ-AFE.
+                                <i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 10px;"></i>
+                                <strong>Développement Web :</strong> Lancement du site institutionnel CJ-AFE.
                             </div>
                             <span class="badge">Validé</span>
                         </li>
@@ -352,55 +466,69 @@
             <!-- Slide 7 : Bilan Quantitatif (CSS Chart Fix) -->
             <section>
                 <h2>5. Bilan Quantitatif</h2>
-                <div class="grid-2" style="grid-template-columns: 1.5fr 1fr; align-items: center; gap: 30px;">
-                    <!-- Graphique CSS -->
-                    <div class="box box-animated" style="padding: 10px 15px;">
+                <div class="grid-2" style="grid-template-columns: 1.5fr 1fr; align-items: center; gap: 40px;">
+                    <!-- Graphique CSS au lieu de Chart.js pour éviter le bug de canvas vide -->
+                    <div class="box" style="padding-bottom: 15px;">
                         <div class="css-chart">
-                            <div class="bar-group"><div class="bar" style="height: 100%;"><span>10</span></div><label>Posts FB</label></div>
-                            <div class="bar-group"><div class="bar" style="height: 50%;"><span>5</span></div><label>Visuels</label></div>
-                            <div class="bar-group"><div class="bar" style="height: 20%;"><span>2</span></div><label>Vidéos</label></div>
-                            <div class="bar-group"><div class="bar" style="height: 10%;"><span>1</span></div><label>Albums</label></div>
-                            <div class="bar-group"><div class="bar" style="height: 10%;"><span>1</span></div><label>Site Web</label></div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 100%; background: #2C3E6B;"><span>10</span></div>
+                                <label>Posts FB</label>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 50%; background: #F7B526;"><span>5</span></div>
+                                <label>Visuels</label>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 20%; background: #27ae60;"><span>2</span></div>
+                                <label>Vidéos</label>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 10%; background: #e74c3c;"><span>1</span></div>
+                                <label>Albums</label>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar" style="height: 10%; background: #8e44ad;"><span>1</span></div>
+                                <label>Site Web</label>
+                            </div>
                         </div>
                     </div>
                     <!-- Statistique clé -->
-                    <div class="box box-animated" style="text-align: center; padding: 25px 15px; background: var(--bg); border: 2px dashed #cbd5e1;">
-                        <h4 style="font-weight: 900; color: var(--primary); font-size: 1.2em; justify-content: center; margin-bottom: 5px;">Record d'Engagement</h4>
-                        <p style="font-size: 0.7em; margin-bottom: 25px;">Session 1 (Camp Vacances)</p>
+                    <div style="text-align: center;">
+                        <h4 style="font-weight: bold; color: var(--primary); font-size: 1.1em; margin-bottom: 5px; text-transform: none;">Record d'Engagement</h4>
+                        <p style="font-size: 0.7em; color: #666; margin-bottom: 25px;">Lancement Session 1 (Camp Vacances)</p>
                         
                         <div class="stat-circle">
                             <span>212</span>
-                            <p>J'aime</p>
+                            <p>J'aime (Likes)</p>
                         </div>
                         
-                        <p style="font-size: 0.85em; color: var(--primary); font-weight: 800; margin-top: 25px; margin-bottom: 0;">
-                            <i class="fas fa-comment-dots" style="color:var(--secondary); font-size: 1.2em; margin-right: 5px;"></i> 6 Commentaires
-                        </p>
+                        <p style="font-size: 0.85em; margin-top: 20px; color: var(--primary); font-weight: bold;"><i class="fas fa-comment" style="color:var(--secondary);"></i> 6 Commentaires</p>
                     </div>
                 </div>
             </section>
 
             <!-- Slide 8 : Recommandations (Structure de marque) -->
             <section>
-                <h2>6. Marques Ombrelles</h2>
-                <div class="grid-2" style="grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
-                    <div class="box box-animated" style="text-align: center; border-top: 4px solid var(--primary);">
-                        <i class="fas fa-university" style="font-size: 2.2em; color: var(--primary); margin-bottom: 10px;"></i>
-                        <h4 style="justify-content: center; font-size: 1.1em;">CJ-AFE</h4>
-                        <span class="badge" style="background: var(--primary); margin-bottom: 10px; display: inline-block;">Marque Mère</span>
-                        <p>La Formation et l'Accompagnement uniquement.</p>
+                <h2>6. Stratégie : Marques Ombrelles</h2>
+                <p style="margin-bottom: 30px;">Afin de dissiper la confusion actuelle, il est crucial de séparer visuellement les offres :</p>
+                <div class="grid-2" style="grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div class="box fragment fade-up" style="text-align: center; border-top-color: #2C3E6B;">
+                        <i class="fas fa-university" style="font-size: 2.5em; color: #2C3E6B; margin-bottom: 15px; margin-right: 0;"></i>
+                        <h4 style="color: #2C3E6B; justify-content: center;">CJ-AFE</h4>
+                        <p style="font-size: 0.8em; font-weight: bold; color: #2C3E6B;">Marque Mère</p>
+                        <p style="font-size: 0.75em;">La Formation et l'Accompagnement uniquement.</p>
                     </div>
-                    <div class="box box-animated" style="text-align: center; border-top: 4px solid var(--secondary);">
-                        <i class="fas fa-apple-alt" style="font-size: 2.2em; color: var(--secondary); margin-bottom: 10px;"></i>
-                        <h4 style="color: var(--secondary); justify-content: center; font-size: 1.1em;">Produits Locaux</h4>
-                        <span class="badge" style="background: var(--secondary); margin-bottom: 10px; display: inline-block;">Ombrelle 1</span>
-                        <p>Une identité propre pour la vente de jus et agroalimentaire.</p>
+                    <div class="box fragment fade-up" style="text-align: center; border-top-color: #F7B526;">
+                        <i class="fas fa-apple-alt" style="font-size: 2.5em; color: #F7B526; margin-bottom: 15px; margin-right: 0;"></i>
+                        <h4 style="color: #F7B526; justify-content: center;">Produits Locaux</h4>
+                        <p style="font-size: 0.8em; font-weight: bold; color: #F7B526;">Ombrelle 1</p>
+                        <p style="font-size: 0.75em;">Une identité propre pour la vente de jus et agroalimentaire.</p>
                     </div>
-                    <div class="box box-animated" style="text-align: center; border-top: 4px solid #10b981;">
-                        <i class="fas fa-building" style="font-size: 2.2em; color: #10b981; margin-bottom: 10px;"></i>
-                        <h4 style="color: #10b981; justify-content: center; font-size: 1.1em;">Coworking</h4>
-                        <span class="badge" style="background: #10b981; margin-bottom: 10px; display: inline-block;">Ombrelle 2</span>
-                        <p>Identité corporate pour séduire une cible B2B (entreprises).</p>
+                    <div class="box fragment fade-up" style="text-align: center; border-top-color: #27ae60;">
+                        <i class="fas fa-building" style="font-size: 2.5em; color: #27ae60; margin-bottom: 15px; margin-right: 0;"></i>
+                        <h4 style="color: #27ae60; justify-content: center;">Coworking</h4>
+                        <p style="font-size: 0.8em; font-weight: bold; color: #27ae60;">Ombrelle 2</p>
+                        <p style="font-size: 0.75em;">Identité corporate pour séduire une cible B2B (entreprises).</p>
                     </div>
                 </div>
             </section>
@@ -409,19 +537,19 @@
             <section>
                 <h2>7. Perspectives d'Avenir</h2>
                 <div class="grid-2">
-                    <div class="box box-animated">
+                    <div class="box fragment">
                         <h4><i class="fas fa-bullseye"></i> Acquisition Payante</h4>
                         <p>Prévoir un budget publicitaire (Facebook Ads) pour sponsoriser les lancements de cohortes.</p>
                     </div>
-                    <div class="box box-animated">
+                    <div class="box fragment">
                         <h4><i class="fas fa-video"></i> Preuve Sociale</h4>
                         <p>Filmer les "Success Stories" des anciens apprenants pour rassurer les futurs inscrits.</p>
                     </div>
-                    <div class="box box-animated">
+                    <div class="box fragment">
                         <h4><i class="fas fa-mouse-pointer"></i> Trafic Web</h4>
                         <p>Insérer systématiquement le lien du site web dans chaque publication Facebook et TikTok.</p>
                     </div>
-                    <div class="box box-animated">
+                    <div class="box fragment">
                         <h4><i class="fas fa-graduation-cap"></i> E-learning</h4>
                         <p>Finaliser la production des cours en ligne payants pour monétiser la rubrique du site web.</p>
                     </div>
@@ -430,23 +558,29 @@
 
             <!-- Slide 10 : Conclusion -->
             <section>
-                <h1 style="font-size: 2.5em; margin-bottom: 30px;">Conclusion</h1>
-                <div class="box box-animated" style="width: 80%; margin: 0 auto; text-align: center; border-top-width: 6px; padding: 30px;">
-                    <p style="font-size: 1em; line-height: 1.7; margin-bottom: 0; color: var(--text-dark);">
-                        Grâce à la nouvelle identité visuelle, la restructuration stratégique et le lancement du <strong style="color: var(--primary);">site web officiel</strong>, le CJ-AFE dispose aujourd'hui d'outils modernes pour asseoir sa crédibilité.<br><br>
+                <h1 style="color: var(--primary); font-size: 2.5em; margin-bottom: 30px;">Conclusion</h1>
+                <div class="box" style="width: 80%; margin: 0 auto; text-align: center; border-top-width: 8px;">
+                    <p style="font-size: 0.9em; line-height: 1.6; margin-bottom: 0;">
+                        Grâce à la nouvelle identité visuelle, la restructuration stratégique et le lancement du <strong>site web officiel</strong>, le CJ-AFE dispose aujourd'hui d'outils modernes pour asseoir sa crédibilité.<br><br>
                         Le respect de la feuille de route proposée sera la clé pour propulser le centre comme un acteur incontournable de l'entreprenariat au Burkina Faso.
                     </p>
                 </div>
             </section>
 
             <!-- Slide 11 : Merci -->
-            <section data-transition="zoom">
+            <section data-transition="convex">
                 <div class="thank-you-slide">
                     <h1 class="thank-you-title">MERCI !</h1>
-                    <p class="thank-you-subtitle">Pour votre confiance et pour ces 3 mois exceptionnels.</p>
+                    <p class="thank-you-subtitle">Pour votre confiance et pour ces 3 mois exceptionnels<br>au cœur de l'entreprenariat burkinabè.</p>
                     
-                    <a href="index.html" class="premium-btn">
-                        <i class="fas fa-rocket" style="margin-right: 8px;"></i> Découvrir le Site Web
+                    <div style="margin-top: 40px; margin-bottom: 40px;">
+                        <i class="fas fa-handshake floating-icon icon-1"></i>
+                        <i class="fas fa-heart floating-icon icon-2" style="color: #e74c3c;"></i>
+                        <i class="fas fa-rocket floating-icon icon-3" style="color: var(--primary);"></i>
+                    </div>
+
+                    <a href="index.html" class="fragment fade-up" style="font-size: 0.8em; background: var(--secondary); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(247, 181, 38, 0.4); display: inline-block; margin-top: 20px; font-weight: bold; transition: all 0.3s;">
+                        <i class="fas fa-mouse-pointer"></i> Visiter le Site Web
                     </a>
                 </div>
             </section>
@@ -458,9 +592,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
     <script>
         Reveal.initialize({
-            width: 1000, /* Safe width to prevent overflow on typical screens */
+            // Forcer une taille de base (16:9) que Reveal va mettre à l'échelle harmonieusement
+            width: 1100,
             height: 700,
-            margin: 0.1,
+            margin: 0.08,
             minScale: 0.2,
             maxScale: 2.0,
             
@@ -468,7 +603,8 @@
             controls: true,
             progress: true,
             center: true,
-            transition: 'slide'
+            transition: 'slide',
+            autoAnimate: true
         });
 
         // Gestion du bouton Plein Écran
@@ -482,6 +618,14 @@
             } else {
                 document.exitFullscreen();
                 fsBtn.innerHTML = '<i class="fas fa-expand"></i> Plein Écran';
+            }
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                fsBtn.innerHTML = '<i class="fas fa-expand"></i> Plein Écran';
+            } else {
+                fsBtn.innerHTML = '<i class="fas fa-compress"></i> Quitter';
             }
         });
     </script>
