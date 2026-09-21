@@ -715,7 +715,7 @@
         fsBtn.addEventListener('click', () => {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => {
-                    console.log(Erreur: );
+                    console.log("Erreur: " + err.message);
                 });
             } else {
                 document.exitFullscreen();
