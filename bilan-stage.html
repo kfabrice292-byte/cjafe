@@ -149,6 +149,11 @@
             background: var(--primary); color: white; width: 140px; height: 140px;
             border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;
             margin: 0 auto; border: 5px solid var(--secondary); box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transform: scale(0);
+        }
+        .reveal .present .stat-circle {
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 1.2s;
         }
         .stat-circle span { font-size: 2.8em; font-weight: bold; line-height: 1; margin-bottom: 5px; }
         .stat-circle p { font-size: 0.5em; margin: 0; line-height: 1; color: white !important; font-weight: bold;}
@@ -179,17 +184,37 @@
             position: relative;
             display: flex;
             justify-content: center;
-            animation: growUp 1.5s ease-out forwards;
             transform-origin: bottom;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transform: scaleY(0);
         }
+        
+        .reveal .present .bar {
+            animation: growUp 0.8s ease-out forwards;
+        }
+        .reveal .present .bar-group:nth-child(1) .bar { animation-delay: 0.2s; }
+        .reveal .present .bar-group:nth-child(2) .bar { animation-delay: 0.4s; }
+        .reveal .present .bar-group:nth-child(3) .bar { animation-delay: 0.6s; }
+        .reveal .present .bar-group:nth-child(4) .bar { animation-delay: 0.8s; }
+        .reveal .present .bar-group:nth-child(5) .bar { animation-delay: 1.0s; }
+
         .bar span {
             position: absolute;
             top: -25px;
             font-weight: bold;
             font-size: 0.9em;
             color: #333;
+            opacity: 0;
         }
+        .reveal .present .bar span {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .reveal .present .bar-group:nth-child(1) .bar span { animation-delay: 0.8s; }
+        .reveal .present .bar-group:nth-child(2) .bar span { animation-delay: 1.0s; }
+        .reveal .present .bar-group:nth-child(3) .bar span { animation-delay: 1.2s; }
+        .reveal .present .bar-group:nth-child(4) .bar span { animation-delay: 1.4s; }
+        .reveal .present .bar-group:nth-child(5) .bar span { animation-delay: 1.6s; }
+
         .bar-group label {
             margin-top: 10px;
             font-size: 0.55em;
@@ -201,6 +226,15 @@
         @keyframes growUp {
             from { transform: scaleY(0); }
             to { transform: scaleY(1); }
+        }
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
