@@ -314,6 +314,98 @@
         @keyframes drawLine {
             to { width: 90%; }
         }
+
+        /* =========================================
+           ENHANCEMENTS: ICONS & HOVER EFFECTS (PRESERVING STRUCTURE)
+           ========================================= */
+        
+        /* 1. Box Hover Effects (Subtle lift) */
+        .box {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease !important;
+        }
+        .box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+        }
+
+        /* 2. Box Header Icons (Gradient & Pop) */
+        .box h4 i { 
+            background: linear-gradient(135deg, var(--secondary), #f39c12); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 3px rgba(247, 181, 38, 0.3));
+            display: inline-block;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .box:hover h4 i {
+            transform: scale(1.25) rotate(8deg);
+        }
+
+        /* 3. Slide 8: Marques Ombrelles (Continuous Float for big icons) */
+        .box > i.fas {
+            display: inline-block;
+            animation: gentleFloat 3s ease-in-out infinite alternate;
+            background: none !important; /* Reset gradient for these specific ones */
+            -webkit-text-fill-color: initial !important;
+            filter: none !important;
+        }
+        .grid-2 > .box:nth-child(1) > i.fas { animation-delay: 0s; }
+        .grid-2 > .box:nth-child(2) > i.fas { animation-delay: 1s; }
+        .grid-2 > .box:nth-child(3) > i.fas { animation-delay: 2s; }
+        
+        @keyframes gentleFloat {
+            0% { transform: translateY(0); filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+            100% { transform: translateY(-8px); filter: drop-shadow(0 10px 8px rgba(0,0,0,0.15)); }
+        }
+
+        /* 4. Timeline Icons (Slide 5 Hover Dynamics) */
+        .timeline-icon {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            position: relative;
+            z-index: 2;
+        }
+        .timeline-icon i {
+            transition: transform 0.3s;
+        }
+        .timeline-item:hover .timeline-icon {
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(44,62,107,0.3) !important;
+            background: var(--secondary) !important;
+            border-color: var(--primary) !important;
+        }
+        .timeline-item:hover .timeline-icon i {
+            transform: scale(1.1);
+            color: var(--primary);
+        }
+
+        /* 5. Realisation List (Slide 6 Interaction) */
+        .realisation-item {
+            transition: all 0.3s ease !important;
+            border-left: 3px solid transparent;
+        }
+        .realisation-item:hover {
+            background: #fdfdfd;
+            transform: translateX(8px) !important;
+            border-left: 3px solid var(--secondary);
+            box-shadow: 2px 2px 12px rgba(0,0,0,0.04);
+        }
+        .realisation-item i {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+        }
+        .realisation-item:hover i {
+            transform: scale(1.25);
+            filter: drop-shadow(0 2px 4px rgba(247, 181, 38, 0.4));
+        }
+
+        /* 6. Title Slide (Slide 1 icon subtle animation) */
+        .logo-top {
+            transition: transform 0.5s ease;
+        }
+        .logo-top:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
     </style>
 </head>
 <body>
