@@ -236,6 +236,65 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Thank you Slide */
+        .thank-you-slide {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .thank-you-title {
+            font-size: 4em !important;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px !important;
+            transform: scale(0);
+        }
+        .reveal .present .thank-you-title {
+            animation: zoomBounce 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 0.2s;
+        }
+        .thank-you-subtitle {
+            font-size: 1.2em;
+            color: #555;
+            opacity: 0;
+            transform: translateY(20px);
+            font-weight: 500;
+        }
+        .reveal .present .thank-you-subtitle {
+            animation: slideUpFade 0.8s ease forwards;
+            animation-delay: 1.2s;
+        }
+        .floating-icon {
+            font-size: 3em;
+            color: var(--secondary);
+            margin: 0 25px;
+            opacity: 0;
+            display: inline-block;
+        }
+        .reveal .present .icon-1 { animation: floatInFade 0.6s ease forwards, floatAnim 2s ease-in-out infinite alternate 2.2s; animation-delay: 2s; }
+        .reveal .present .icon-2 { animation: floatInFade 0.6s ease forwards, floatAnim 2s ease-in-out infinite alternate 2.4s; animation-delay: 2.2s; }
+        .reveal .present .icon-3 { animation: floatInFade 0.6s ease forwards, floatAnim 2s ease-in-out infinite alternate 2.6s; animation-delay: 2.4s; }
+        
+        @keyframes zoomBounce {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes slideUpFade {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes floatInFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes floatAnim {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-15px); }
+        }
     </style>
 </head>
 <body>
@@ -487,7 +546,24 @@
                         Le respect de la feuille de route proposée sera la clé pour propulser le centre comme un acteur incontournable de l'entreprenariat au Burkina Faso.
                     </p>
                 </div>
-                <a href="index.html" class="fragment fade-up" style="font-size: 0.8em; background: var(--secondary); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(247, 181, 38, 0.4); display: inline-block; margin-top: 40px; font-weight: bold;">Visiter le Site Web</a>
+            </section>
+
+            <!-- Slide 11 : Merci -->
+            <section data-transition="convex">
+                <div class="thank-you-slide">
+                    <h1 class="thank-you-title">MERCI !</h1>
+                    <p class="thank-you-subtitle">Pour votre confiance et pour ces 3 mois exceptionnels<br>au cœur de l'entreprenariat burkinabè.</p>
+                    
+                    <div style="margin-top: 40px; margin-bottom: 40px;">
+                        <i class="fas fa-handshake floating-icon icon-1"></i>
+                        <i class="fas fa-heart floating-icon icon-2" style="color: #e74c3c;"></i>
+                        <i class="fas fa-rocket floating-icon icon-3" style="color: var(--primary);"></i>
+                    </div>
+
+                    <a href="index.html" class="fragment fade-up" style="font-size: 0.8em; background: var(--secondary); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(247, 181, 38, 0.4); display: inline-block; margin-top: 20px; font-weight: bold; transition: all 0.3s;">
+                        <i class="fas fa-mouse-pointer"></i> Visiter le Site Web
+                    </a>
+                </div>
             </section>
 
         </div>
