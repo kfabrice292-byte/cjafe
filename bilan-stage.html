@@ -155,20 +155,18 @@
             animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
             animation-delay: 1.2s;
         }
-        .stat-circle span { font-size: 2.8em; font-weight: bold; line-height: 1; margin-bottom: 5px; }
-        .stat-circle p { font-size: 0.5em; margin: 0; line-height: 1; color: white !important; font-weight: bold;}
+        .stat-circle span { font-size: 60px; font-weight: bold; line-height: 1; margin-bottom: 5px; }
+        .stat-circle p { font-size: 16px; margin: 0; line-height: 1; color: white !important; font-weight: bold;}
 
         /* CSS Bar Chart */
         .css-chart {
             display: flex;
             justify-content: space-around;
             align-items: flex-end;
-            height: 250px;
-            padding-top: 30px;
+            height: 220px;
             border-bottom: 2px solid #ddd;
             border-left: 2px solid #ddd;
-            padding-left: 10px;
-            margin-bottom: 10px;
+            margin: 40px 10px 40px 10px; /* Space for top numbers and bottom labels */
         }
         .bar-group {
             display: flex;
@@ -177,6 +175,7 @@
             justify-content: flex-end;
             height: 100%;
             width: 15%;
+            position: relative;
         }
         .bar {
             width: 100%;
@@ -200,9 +199,9 @@
 
         .bar span {
             position: absolute;
-            top: -25px;
+            top: -30px;
             font-weight: bold;
-            font-size: 0.9em;
+            font-size: 24px;
             color: #333;
             opacity: 0;
         }
@@ -216,12 +215,13 @@
         .reveal .present .bar-group:nth-child(5) .bar span { animation-delay: 1.6s; }
 
         .bar-group label {
-            margin-top: 10px;
-            font-size: 0.55em;
+            position: absolute;
+            bottom: -35px;
+            font-size: 14px;
             font-weight: 600;
             text-align: center;
             color: #555;
-            height: 20px;
+            width: 120px;
         }
         @keyframes growUp {
             from { transform: scaleY(0); }
