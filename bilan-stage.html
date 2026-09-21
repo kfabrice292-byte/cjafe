@@ -28,85 +28,105 @@
             --secondary: #F7B526;
         }
 
-        .reveal h1, .reveal h2, .reveal h3, .reveal h4 { font-weight: 700; text-transform: none; }
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 { 
+            font-weight: 700; 
+            text-transform: none; 
+        }
+        
         .reveal .slide-background { background-color: #f5f7fa; }
 
-        /* Slide Constraints to prevent overflow */
-        .reveal .slides section {
-            height: 100%;
-            display: flex !important;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
+        /* Standardization of text elements */
         .reveal h2 {
             border-bottom: 3px solid var(--secondary);
             padding-bottom: 5px;
-            margin-bottom: 20px;
-            font-size: 1.4em;
+            margin-bottom: 40px;
+            font-size: 1.5em;
+            display: inline-block;
         }
 
-        .reveal ul { width: 90%; font-size: 0.75em; line-height: 1.4; }
-        .reveal li { margin-bottom: 10px; }
-        .reveal p { font-size: 0.75em; line-height: 1.4; margin-bottom: 15px; }
+        .reveal ul { 
+            width: 90%; 
+            font-size: 0.8em; 
+            line-height: 1.5; 
+            margin: 0 auto;
+            display: block;
+        }
+        .reveal li { margin-bottom: 15px; text-align: left; }
+        .reveal p { font-size: 0.8em; line-height: 1.5; margin-bottom: 20px; }
 
-        .logo-top { position: absolute; top: 20px; left: 20px; width: 80px; z-index: 1000; }
+        .logo-top { position: absolute; top: 20px; left: 20px; width: 90px; z-index: 1000; }
 
-        /* custom grids */
+        /* custom grids - very clean and structured */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            width: 100%;
+            gap: 25px;
+            width: 95%;
+            margin: 0 auto;
         }
         
         .box {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--primary);
             text-align: left;
         }
-        .box h4 { color: var(--primary); margin-bottom: 10px; font-size: 0.9em; }
-        .box i { color: var(--secondary); margin-right: 8px; font-size: 1.2em; vertical-align: middle; }
+        .box h4 { 
+            color: var(--primary); 
+            margin-bottom: 15px; 
+            font-size: 0.95em; 
+            display: flex;
+            align-items: center;
+        }
+        .box i { color: var(--secondary); margin-right: 12px; font-size: 1.3em; }
+        .box p { font-size: 0.75em; margin: 0; }
+        .box ul { font-size: 0.75em; margin-left: 20px; width: auto; }
 
         /* Timeline Graphics */
         .timeline { 
-            display: flex; justify-content: space-between; align-items: center; 
-            width: 100%; position: relative; margin-top: 30px; 
+            display: flex; justify-content: space-between; align-items: flex-start; 
+            width: 100%; position: relative; margin-top: 40px; 
         }
         .timeline::before { 
-            content: ''; position: absolute; top: 50%; left: 0; width: 100%; 
-            height: 4px; background: var(--secondary); z-index: -1; 
+            content: ''; position: absolute; top: 35px; left: 5%; width: 90%; 
+            height: 4px; background: #ddd; z-index: -1; 
         }
         .timeline-item { 
-            background: var(--primary); color: white; padding: 15px; 
-            border-radius: 10px; font-size: 0.55em; font-weight: bold; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-align: center; width: 15%;
+            width: 18%; text-align: center;
         }
-        .timeline-item span { display: block; font-size: 2.5em; color: var(--secondary); margin-bottom: 5px; }
+        .timeline-icon {
+            background: var(--primary); color: white; width: 70px; height: 70px; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            font-size: 1.5em; margin: 0 auto 15px auto; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 3px solid white;
+        }
+        .timeline-item p { font-size: 0.65em; font-weight: bold; margin: 0; line-height: 1.2; }
 
         /* Badge */
-        .badge { background: #27ae60; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.7em; font-weight: bold; float: right; }
+        .badge { 
+            background: #27ae60; color: white; padding: 4px 12px; 
+            border-radius: 20px; font-size: 0.65em; font-weight: bold; 
+            float: right; margin-top: -2px;
+        }
 
         /* Fullscreen button */
         #fsBtn {
-            position: fixed; bottom: 20px; right: 20px; z-index: 9999;
-            padding: 10px 20px; background-color: var(--primary); color: white;
+            position: fixed; bottom: 25px; right: 25px; z-index: 9999;
+            padding: 12px 25px; background-color: var(--primary); color: white;
             border: none; border-radius: 50px; font-family: var(--r-main-font); font-weight: 600;
             cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s;
         }
         #fsBtn:hover { background-color: var(--secondary); transform: translateY(-2px); }
 
         .stat-circle {
-            background: var(--primary); color: white; width: 120px; height: 120px;
+            background: var(--primary); color: white; width: 140px; height: 140px;
             border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            margin: 0 auto; border: 4px solid var(--secondary); box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin: 0 auto; border: 5px solid var(--secondary); box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
-        .stat-circle span { font-size: 1.8em; font-weight: bold; line-height: 1; }
-        .stat-circle p { font-size: 0.4em; margin: 0; padding-top: 5px; text-transform: uppercase; }
+        .stat-circle span { font-size: 2.2em; font-weight: bold; line-height: 1; }
+        .stat-circle p { font-size: 0.45em; margin: 0; padding-top: 5px; text-transform: uppercase; }
     </style>
 </head>
 <body>
@@ -118,27 +138,27 @@
         <div class="slides">
             
             <!-- Slide 1 : Titre -->
-            <section class="title-slide" data-transition="zoom">
-                <h1 style="color: var(--primary); font-size: 1.8em; margin-bottom: 10px;">Rapport d'Audit & Stratégie Digitale</h1>
-                <h3 style="color: var(--secondary); font-size: 1em;">Bilan des activités de stage au CJ-AFE</h3>
-                <p style="margin-top: 30px; font-size: 0.7em; color: #666;">Présenté à l'attention de l'équipe dirigeante<br><strong>KABORE Wendémi Fabrice</strong></p>
+            <section>
+                <h1 style="color: var(--primary); font-size: 2.2em; margin-bottom: 20px;">Rapport d'Audit & Stratégie Digitale</h1>
+                <h3 style="color: var(--secondary); font-size: 1.2em;">Bilan des activités de stage au CJ-AFE</h3>
+                <p style="margin-top: 50px; font-size: 0.8em; color: #666;">Présenté à l'attention de l'équipe dirigeante<br><br><strong>KABORE Wendémi Fabrice</strong></p>
             </section>
 
             <!-- Slide 2 : Introduction -->
-            <section data-transition="slide">
+            <section>
                 <h2>1. Contexte de la Mission</h2>
-                <div class="box" style="width: 90%;">
-                    <p><strong>Objectif principal :</strong> Analyser la présence numérique du centre et structurer son image institutionnelle.</p>
-                    <ul style="width: 100%; font-size: 0.85em; margin-top: 15px;">
-                        <li><i class="fas fa-search" style="color:var(--secondary);"></i> Évaluer l'existant (réseaux sociaux, supports).</li>
-                        <li><i class="fas fa-paint-brush" style="color:var(--secondary);"></i> Uniformiser la charte graphique.</li>
-                        <li><i class="fas fa-laptop-code" style="color:var(--secondary);"></i> Développer un écosystème web professionnel.</li>
+                <div class="box" style="width: 80%; margin: 0 auto;">
+                    <p style="font-size: 0.9em;"><strong>Objectif principal :</strong> Analyser la présence numérique du centre et restructurer son image institutionnelle.</p>
+                    <ul style="width: 100%; margin-top: 20px;">
+                        <li><i class="fas fa-search" style="color:var(--secondary); margin-right: 10px;"></i> Évaluer l'existant (réseaux sociaux, supports physiques).</li>
+                        <li><i class="fas fa-paint-brush" style="color:var(--secondary); margin-right: 10px;"></i> Uniformiser la charte graphique et l'identité.</li>
+                        <li><i class="fas fa-laptop-code" style="color:var(--secondary); margin-right: 10px;"></i> Développer un véritable écosystème web professionnel.</li>
                     </ul>
                 </div>
             </section>
 
             <!-- Slide 3 : L'Audit Initial - Points Forts -->
-            <section data-transition="slide">
+            <section>
                 <h2>2. Audit : L'Existant (Forces)</h2>
                 <div class="grid-2">
                     <div class="box fragment fade-up">
@@ -161,104 +181,124 @@
             </section>
 
             <!-- Slide 4 : L'Audit Initial - Faiblesses -->
-            <section data-transition="slide">
+            <section>
                 <h2>2. Audit : Axes d'Amélioration</h2>
                 <div class="grid-2">
                     <div class="box fragment fade-left" style="border-top-color: #e74c3c;">
                         <h4><i class="fas fa-eye-slash"></i> Visibilité Faible</h4>
-                        <p>Le ratio Abonnés / Volume de publications est trop faible. L'audience ne croît pas assez vite.</p>
+                        <p>Le ratio Abonnés / Volume de publications est trop faible. L'audience croît trop lentement.</p>
                     </div>
                     <div class="box fragment fade-left" style="border-top-color: #e74c3c;">
                         <h4><i class="fas fa-palette"></i> Charte Graphique</h4>
-                        <p>Manque d'uniformité dans les couleurs et polices utilisées sur les visuels, diluant la marque CJ-AFE.</p>
+                        <p>Manque d'uniformité dans les couleurs et polices utilisées sur les visuels, diluant la marque.</p>
                     </div>
                     <div class="box fragment fade-left" style="border-top-color: #e74c3c;">
                         <h4><i class="fas fa-bullhorn"></i> Contenu Informatif</h4>
-                        <p>La communication relate les faits, mais valorise trop peu "l'impact" (témoignages, success stories).</p>
+                        <p>La communication relate les faits, mais valorise trop peu "l'impact" (témoignages, réussites).</p>
                     </div>
                     <div class="box fragment fade-left" style="border-top-color: #e74c3c;">
-                        <h4><i class="fas fa-globe"></i> Espace Web Inexistant</h4>
-                        <p>Aucune plateforme web centralisée pour structurer l'offre (Pôles, Inscriptions, E-learning).</p>
+                        <h4><i class="fas fa-globe"></i> Écosystème Web</h4>
+                        <p>Aucune plateforme web centralisée pour structurer l'offre (Pôles, Inscriptions en ligne).</p>
                     </div>
                 </div>
             </section>
 
             <!-- Slide 5 : Le Plan d'Action Déployé (Graphique) -->
-            <section data-transition="slide">
+            <section>
                 <h2>3. Méthodologie (5 Phases)</h2>
-                <p>Un plan d'action express étalé sur les 3 mois du stage :</p>
-                <div class="timeline fragment">
-                    <div class="timeline-item"><span><i class="fas fa-stethoscope"></i></span> Diagnostic</div>
-                    <div class="timeline-item"><span><i class="fas fa-swatchbook"></i></span> Identité Visuelle</div>
-                    <div class="timeline-item"><span><i class="fas fa-hashtag"></i></span> Réseaux Sociaux</div>
-                    <div class="timeline-item"><span><i class="fas fa-code"></i></span> Site Web</div>
-                    <div class="timeline-item"><span><i class="fas fa-chart-line"></i></span> Évaluation</div>
+                <p style="margin-bottom: 40px;">Un plan d'action express étalé sur les 3 mois du stage :</p>
+                
+                <div class="timeline fragment fade-in">
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-stethoscope"></i></div>
+                        <p>Phase 1<br>Diagnostic</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-swatchbook"></i></div>
+                        <p>Phase 2<br>Identité Visuelle</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-hashtag"></i></div>
+                        <p>Phase 3<br>Réseaux Sociaux</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-code"></i></div>
+                        <p>Phase 4<br>Site Web</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-chart-line"></i></div>
+                        <p>Phase 5<br>Évaluation</p>
+                    </div>
                 </div>
             </section>
 
             <!-- Slide 6 : Bilan Qualitatif -->
-            <section data-transition="zoom">
+            <section>
                 <h2>4. Bilan des Réalisations</h2>
-                <div class="box" style="width: 90%;">
-                    <ul style="list-style: none; padding: 0; width: 100%;">
-                        <li class="fragment"><i class="fas fa-check-circle" style="color:var(--secondary);"></i> <strong>Audit Stratégique :</strong> Analyse complète terminée. <span class="badge">Validé</span></li>
-                        <li class="fragment"><i class="fas fa-check-circle" style="color:var(--secondary);"></i> <strong>Identité Visuelle :</strong> Nouveau logo optimisé et charte graphique. <span class="badge">Validé</span></li>
-                        <li class="fragment"><i class="fas fa-check-circle" style="color:var(--secondary);"></i> <strong>Conception Graphique :</strong> Visuels Camp Vacances & Summer English. <span class="badge">Validé</span></li>
-                        <li class="fragment"><i class="fas fa-check-circle" style="color:var(--secondary);"></i> <strong>Audiovisuel :</strong> Reels immersifs et photos d'événements. <span class="badge">Validé</span></li>
-                        <li class="fragment"><i class="fas fa-check-circle" style="color:var(--secondary);"></i> <strong>Développement Web :</strong> Lancement du site institutionnel CJ-AFE. <span class="badge">Validé</span></li>
+                <div class="box" style="width: 90%; margin: 0 auto; padding: 30px;">
+                    <ul style="list-style: none; padding: 0; width: 100%; margin: 0;">
+                        <li class="fragment fade-up"><i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 10px;"></i> <strong>Audit Stratégique :</strong> Analyse complète terminée. <span class="badge">Validé</span></li>
+                        <hr style="opacity: 0.2; margin: 15px 0;">
+                        <li class="fragment fade-up"><i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 10px;"></i> <strong>Identité Visuelle :</strong> Nouveau logo optimisé et charte graphique. <span class="badge">Validé</span></li>
+                        <hr style="opacity: 0.2; margin: 15px 0;">
+                        <li class="fragment fade-up"><i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 10px;"></i> <strong>Conception Graphique :</strong> Visuels Camp Vacances & Summer English. <span class="badge">Validé</span></li>
+                        <hr style="opacity: 0.2; margin: 15px 0;">
+                        <li class="fragment fade-up"><i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 10px;"></i> <strong>Audiovisuel :</strong> Reels immersifs et photos d'événements. <span class="badge">Validé</span></li>
+                        <hr style="opacity: 0.2; margin: 15px 0;">
+                        <li class="fragment fade-up"><i class="fas fa-check-circle" style="color:var(--secondary); margin-right: 10px;"></i> <strong>Développement Web :</strong> Lancement du site institutionnel CJ-AFE. <span class="badge">Validé</span></li>
                     </ul>
                 </div>
             </section>
 
             <!-- Slide 7 : Bilan Quantitatif (Chart.js) -->
-            <section data-transition="slide">
+            <section>
                 <h2>5. Bilan Quantitatif</h2>
-                <div class="grid-2" style="grid-template-columns: 2fr 1fr; align-items: center;">
+                <div class="grid-2" style="grid-template-columns: 2fr 1fr; align-items: center; gap: 40px;">
                     <!-- Graphique -->
-                    <div class="box" style="height: 300px; position: relative;">
+                    <div class="box" style="height: 350px; position: relative;">
                         <canvas id="productionChart"></canvas>
                     </div>
                     <!-- Statistique clé -->
                     <div style="text-align: center;">
-                        <p style="font-weight: bold; color: var(--primary);">Record d'Engagement</p>
-                        <p style="font-size: 0.7em; color: #666; margin-bottom: 20px;">Lancement Session 1 (Camp Vacances)</p>
+                        <p style="font-weight: bold; color: var(--primary); font-size: 1.1em;">Record d'Engagement</p>
+                        <p style="font-size: 0.8em; color: #666; margin-bottom: 25px;">Lancement Session 1 (Camp Vacances)</p>
                         <div class="stat-circle">
                             <span>212</span>
                             <p>J'aime (Likes)</p>
                         </div>
-                        <p style="font-size: 0.8em; margin-top: 15px; color: var(--primary);"><i class="fas fa-comment"></i> 6 Commentaires</p>
+                        <p style="font-size: 0.9em; margin-top: 20px; color: var(--primary); font-weight: bold;"><i class="fas fa-comment" style="color:var(--secondary);"></i> 6 Commentaires</p>
                     </div>
                 </div>
             </section>
 
             <!-- Slide 8 : Recommandations (Structure de marque) -->
-            <section data-transition="slide">
+            <section>
                 <h2>6. Stratégie : Marques Ombrelles</h2>
-                <p>Afin de dissiper la confusion actuelle, il est crucial de séparer visuellement les offres :</p>
-                <div class="grid-2" style="grid-template-columns: 1fr 1fr 1fr;">
-                    <div class="box fragment fade-up" style="text-align: center;">
-                        <i class="fas fa-university" style="font-size: 2em; color: #2C3E6B; margin-bottom: 10px;"></i>
-                        <h4 style="color: #2C3E6B;">CJ-AFE</h4>
-                        <p style="font-size: 0.8em; font-weight: bold;">Marque Mère</p>
+                <p style="margin-bottom: 30px;">Afin de dissiper la confusion actuelle, il est crucial de séparer visuellement les offres :</p>
+                <div class="grid-2" style="grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div class="box fragment fade-up" style="text-align: center; border-top-color: #2C3E6B;">
+                        <i class="fas fa-university" style="font-size: 2.5em; color: #2C3E6B; margin-bottom: 15px; margin-right: 0;"></i>
+                        <h4 style="color: #2C3E6B; justify-content: center;">CJ-AFE</h4>
+                        <p style="font-size: 0.8em; font-weight: bold; color: #2C3E6B;">Marque Mère</p>
                         <p style="font-size: 0.75em;">La Formation et l'Accompagnement uniquement.</p>
                     </div>
-                    <div class="box fragment fade-up" style="text-align: center;">
-                        <i class="fas fa-apple-alt" style="font-size: 2em; color: #F7B526; margin-bottom: 10px;"></i>
-                        <h4 style="color: #F7B526;">Produits Locaux</h4>
-                        <p style="font-size: 0.8em; font-weight: bold;">Ombrelle 1</p>
+                    <div class="box fragment fade-up" style="text-align: center; border-top-color: #F7B526;">
+                        <i class="fas fa-apple-alt" style="font-size: 2.5em; color: #F7B526; margin-bottom: 15px; margin-right: 0;"></i>
+                        <h4 style="color: #F7B526; justify-content: center;">Produits Locaux</h4>
+                        <p style="font-size: 0.8em; font-weight: bold; color: #F7B526;">Ombrelle 1</p>
                         <p style="font-size: 0.75em;">Une identité propre pour la vente de jus et agroalimentaire.</p>
                     </div>
-                    <div class="box fragment fade-up" style="text-align: center;">
-                        <i class="fas fa-building" style="font-size: 2em; color: #27ae60; margin-bottom: 10px;"></i>
-                        <h4 style="color: #27ae60;">Coworking</h4>
-                        <p style="font-size: 0.8em; font-weight: bold;">Ombrelle 2</p>
+                    <div class="box fragment fade-up" style="text-align: center; border-top-color: #27ae60;">
+                        <i class="fas fa-building" style="font-size: 2.5em; color: #27ae60; margin-bottom: 15px; margin-right: 0;"></i>
+                        <h4 style="color: #27ae60; justify-content: center;">Coworking</h4>
+                        <p style="font-size: 0.8em; font-weight: bold; color: #27ae60;">Ombrelle 2</p>
                         <p style="font-size: 0.75em;">Identité corporate pour séduire une cible B2B (entreprises).</p>
                     </div>
                 </div>
             </section>
 
             <!-- Slide 9 : Recommandations (Pérennisation) -->
-            <section data-transition="slide">
+            <section>
                 <h2>7. Perspectives d'Avenir</h2>
                 <div class="grid-2">
                     <div class="box fragment">
@@ -271,23 +311,25 @@
                     </div>
                     <div class="box fragment">
                         <h4><i class="fas fa-mouse-pointer"></i> Trafic Web</h4>
-                        <p>Insérer systématiquement le lien du site web dans chaque post Facebook/TikTok.</p>
+                        <p>Insérer systématiquement le lien du site web dans chaque publication Facebook et TikTok.</p>
                     </div>
                     <div class="box fragment">
                         <h4><i class="fas fa-graduation-cap"></i> E-learning</h4>
-                        <p>Finaliser la production des cours en ligne payants pour monétiser la rubrique du site.</p>
+                        <p>Finaliser la production des cours en ligne payants pour monétiser la rubrique du site web.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Slide 10 : Conclusion -->
-            <section data-transition="zoom">
-                <h1 style="color: var(--primary); font-size: 2em;">Conclusion</h1>
-                <p style="color: #444; font-size: 0.85em; width: 85%; margin: 20px auto; line-height: 1.6; text-align: justify;">
-                    Grâce à la nouvelle identité visuelle, la restructuration stratégique et le lancement du <strong>site web officiel</strong>, le CJ-AFE dispose aujourd'hui d'outils modernes pour asseoir sa crédibilité.<br><br>
-                    Le respect de la feuille de route proposée sur les 5 prochaines années sera la clé pour propulser le centre comme un acteur incontournable de l'entreprenariat.
-                </p>
-                <a href="index.html" class="fragment" style="font-size: 0.8em; background: var(--secondary); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(247, 181, 38, 0.4); display: inline-block; margin-top: 20px;">Visiter le Site Web</a>
+            <section>
+                <h1 style="color: var(--primary); font-size: 2.5em; margin-bottom: 30px;">Conclusion</h1>
+                <div class="box" style="width: 80%; margin: 0 auto; text-align: center; border-top-width: 8px;">
+                    <p style="font-size: 0.9em; line-height: 1.6; margin-bottom: 0;">
+                        Grâce à la nouvelle identité visuelle, la restructuration stratégique et le lancement du <strong>site web officiel</strong>, le CJ-AFE dispose aujourd'hui d'outils modernes pour asseoir sa crédibilité.<br><br>
+                        Le respect de la feuille de route proposée sera la clé pour propulser le centre comme un acteur incontournable de l'entreprenariat au Burkina Faso.
+                    </p>
+                </div>
+                <a href="index.html" class="fragment fade-up" style="font-size: 0.8em; background: var(--secondary); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(247, 181, 38, 0.4); display: inline-block; margin-top: 40px; font-weight: bold;">Visiter le Site Web</a>
             </section>
 
         </div>
@@ -297,35 +339,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
     <script>
         Reveal.initialize({
+            // Forcer une taille de base (16:9) que Reveal va mettre à l'échelle harmonieusement
+            width: 1100,
+            height: 700,
+            margin: 0.08,
+            minScale: 0.2,
+            maxScale: 2.0,
+            
             hash: true,
             controls: true,
             progress: true,
-            center: false, /* Center false evite les problèmes de hauteur absolue */
-            margin: 0.1, /* Garder une marge de 10% pour éviter tout débordement */
+            center: true, /* Très important pour éviter les débordements (centrage automatique) */
             transition: 'slide',
-            autoAnimate: true,
-            controlsTutorial: true
+            autoAnimate: true
         });
 
-        // Graphique Chart.js (Rendu au chargement pour éviter les bugs d'affichage de canvas caché)
+        // Graphique Chart.js
         document.addEventListener("DOMContentLoaded", function() {
             const ctx = document.getElementById('productionChart');
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Publications FB', 'Visuels', 'Vidéos', 'Albums', 'Sites Web'],
+                    labels: ['Publications FB', 'Visuels', 'Vidéos/Reels', 'Albums Photos', 'Sites Web'],
                     datasets: [{
                         label: 'Volume',
                         data: [10, 5, 2, 1, 1],
                         backgroundColor: ['#2C3E6B', '#F7B526', '#27ae60', '#e74c3c', '#8e44ad'],
-                        borderRadius: 5
+                        borderRadius: 6
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: { y: { beginAtZero: true, ticks: { stepSize: 2 } } }
+                    plugins: { 
+                        legend: { display: false } 
+                    },
+                    scales: { 
+                        y: { 
+                            beginAtZero: true, 
+                            ticks: { stepSize: 2 } 
+                        } 
+                    }
                 }
             });
         });
